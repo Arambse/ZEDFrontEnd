@@ -26,7 +26,8 @@
               <div ng-show="loading">
                 <div class="bar" style="width: 100%"></div>
               </div>
-              <button type="submit" ng-click="login()" ng-disabled="signin.$invalid">Sign in</button>
+               <!-- ng-disabled="signin.$invalid" -->
+              <button type="submit" ng-click="login()">Sign in</button>
             <div ng-show="hasErrors()">
               <button ng-click="login()">×</button>
               <strong>Error!</strong> {{ loginError }}

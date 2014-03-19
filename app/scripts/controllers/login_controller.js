@@ -12,7 +12,7 @@ angular.module('ZedApp')
 
   	var authenticationPromise = Authentication.login($scope.username, $scope.password);
 
-  	authenticationPromise.then(function (response) {
+  	authenticationPromise.then(function (response, status, headers) {
   		console.log('Successful login');
   		$scope.isLoading = false;
   		$scope.isAuthenticated = true;

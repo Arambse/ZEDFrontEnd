@@ -9,17 +9,18 @@ angular.module('ZedApp', [
 ])
   .config(function ($stateProvider, $urlRouterProvider) {
 
-    // $urlRouterProvider.otherwise("/events");
+    $urlRouterProvider.otherwise('/login');
 
     //Anonymous user States
     $stateProvider
       .state('anonymous', {
         abstract: true,
-        template: '<ui-view/>'
+        template: '<ui-view/>',
       })
       .state('anonymous.login', {
         templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        url: '/login'
       }) 
       .state('anonymous.register', {
         templateUrl: 'views/register.html',
@@ -36,12 +37,12 @@ angular.module('ZedApp', [
       //Abstract because views override templateUrl property
       state('user.events', {
         abstract: true,
-        templateUrl: 'views/events.html'
+        templateUrl: 'views/events.html',
+        controller: 'EventsCtrl',
       })
       //Main evnts page subviews
       .state('user.events.main', {
         url: '/events',
-        templateUrl: 'views/events.html',
         views: {
           'map': {
             templateUrl: 'views/events/map.html'

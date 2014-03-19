@@ -27,8 +27,8 @@
     <!-- Add your site or application content here -->
     <div ui-view></div>
     <!-- We'll also add some navigation: -->
-    <a ui-sref="user.events.main">Anonymous</a>
     <a ui-sref="anonymous.login">State 2</a>
+    <a ui-sref="user.events.main">Anonymous</a>
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -58,17 +58,19 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- uiRouter -->g
+    <!-- uiRouter -->
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/services/authentication.js"></script>
+    <script src="scripts/services/authentication_service.js"></script>
+    <script src="scripts/services/user_service.js"></script>
     <script src="scripts/services/constants.js"></script>
 
     <!-- Controllers -->
     <script src="scripts/controllers/main_controller.js"></script>
     <script src="scripts/controllers/login_controller.js"></script>
+    <script src="scripts/controllers/events_controller.js"></script>
     <!-- endbuild -->
 </body>
 </html>

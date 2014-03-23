@@ -317,6 +317,21 @@ module.exports = function (grunt) {
       ]
     },
 
+    //Build control for deployment and github pages
+    buildcontrol: {
+      options: {
+          dir: 'dist',
+          commit: true,
+          push: true,
+          message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+          options: {
+              remote: 'git@github.com:arambse/ZEDFrontEnd.git',
+              branch: 'gh-pages'
+          }
+        }
+    },
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
@@ -403,5 +418,18 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
-  
+
+  //Added
+  grunt.registerTask('deploy_pages', [
+    'buildcontrol:pages'
+  ]);
+
+  grunt.registerTask('deploy_github', [
+
+  ]);
+
+  grunt.registerTask('deploy_all', [
+
+  ]);  
+
 };

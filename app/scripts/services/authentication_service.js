@@ -1,35 +1,24 @@
 angular.module('ZedApp').service('Authentication',
-  ['$http','$state', '$q', 'User', 'SERVER_URL', 'LOGIN_URL',
-    function($http, $state, $q, User, SERVER_URL, LOGIN_URL) {
+  ['$http','$state', '$q', 'localStorageService', 'User', 'SERVER_URL', 'LOGIN_URL',
+    function($http, $state, $q, localStorageService, User, SERVER_URL, LOGIN_URL) {
 
       var isAuthenticated = false;
 
       this.login = function(username, password) {
-      // $http.defaults.withCredentials = true;
 
+        console.log('Logging in for ' + username + ' with Pass ' + password);
         var loginRequestUrl = SERVER_URL + LOGIN_URL;
         var requestHeaders = {
-            'Content-type': 'application/json; charset=utf-8',
             'Authorization': 'Basic ' + btoa(username+':'+password),
+            'Content-type': 'application/json; charset=utf-8'
           };
-        var params = { username: 'rami', password: '1234' };
-        var config = { withCredentials: true };
 
         var deferred = $q.defer();
 
-        $http({method: 'POST', url: loginRequestUrl, headers:requestHeaders, config: config})
+        $http({method: 'POST', url: loginRequestUrl, headers:requestHeaders, data:""})
           .success(function (response, status, headers) {
             console.log(response);
-            //Fix ME
-            var startIndex = response.indexOf('{"username":"');
-            var endIndex = response.indexOf('</string>');
-            var jsonString = response.slice(startIndex, endIndex);
-            var jsonObject = JSON.parse(jsonString);
-
-            User.updateUserDetailes(jsonObject['username'], jsonObject['sessionID']);
-
             deferred.resolve(response);
-
           }).error(function (data) {
             console.log(data);
             deferred.reject(data);
@@ -37,5 +26,18 @@ angular.module('ZedApp').service('Authentication',
 
         return deferred.promise;
       };
+
+      this.retrieveAuthToken = function() {
+        var authToken = localStorageService.get('zedAuthToken');
+        console.log('retrieved AuthToken ' + authToken);
+        return authToken;
+      };
+
+      var updateAuthHeader = function(headerValue) {
+        $http.defaults.headers.common.sessionID = headerValue;
+        console.log('updated sessionID Header with token ' + headerValue);
+      };
+
+      User.registerObserverCallback(updateAuthHeader);
 
     }]);

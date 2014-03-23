@@ -1,10 +1,12 @@
-'use strict';
-
 angular.module('ZedApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['$scope', '$state', 'User', 'Authentication',
+   function ($scope, $state, User, Authentication) {
+	  
+	  // User.sessionID = Authentication.retrieveAuthToken();
+
+	  if (User.sessionID) {
+	  	  $state.go('user.events.main');
+	  } else {
+		  $state.go('anonymous.login'); 
+	  }
+  }]);

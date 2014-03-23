@@ -5,7 +5,8 @@ angular.module('ZedApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.router'
+  'ui.router',
+  'LocalStorageModule'
 ])
   .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -16,6 +17,7 @@ angular.module('ZedApp', [
       .state('anonymous', {
         abstract: true,
         template: '<ui-view/>',
+        controller: 'MainCtrl'
       })
       .state('anonymous.login', {
         templateUrl: 'views/login.html',

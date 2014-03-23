@@ -1,34 +1,26 @@
 angular.module('ZedApp')
-  .controller('EventsCtrl', ['$scope', '$state', '$q', '$http', 'User', 'SESSION_TOKEN_KEY', 'SERVER_URL', 'GET_EVENTS_URL',
-   function ($scope, $state, $q, $http, User, SESSION_TOKEN_KEY, SERVER_URL, GET_EVENTS_URL) {
+  .controller('EventsCtrl', ['$scope', '$state', '$q', '$http', 'Events', 'User',
+   function ($scope, $state, $q, $http, Events, User) {
     
-    $scope.getEvents = function() {
-        
-        $scope.isLoading = true;
+  $scope.getEvents = function () {
+  
+    $scope.isLoading = true;
 
-        var eventsRequestUrl = SERVER_URL + GET_EVENTS_URL;
-        console.log(eventsRequestUrl);
-        var requestHeaders = {
-            'Content-type': 'application/json; charset=utf-8', 'sessionID': User.sessionID
-          };
-        var params = { StartTime: startTime, EndTime: endTime, DateSTR: date };
+    var startTime = '10:15';
+    var endTime = '21:15';
+    var today = '22/03/2014';
+    var warnOnCollisions = true;
+    var warnOnLateOrOpen =false;
 
-        var deferred = $q.defer();
-        console.log('starting events request');
+    var eventsPromise = Events.getEvents(today, startTime, endTime, warnOnCollisions, warnOnLateOrOpen);
 
-        $http({method: 'POST', url: eventsRequestUrl, headers:requestHeaders, params: params})
-          .success(function (response, status, headers) {
-            console.log(response);
-            deferred.resolve(response);
-
-          }).error(function (data) {
-            console.log(data);
-            deferred.reject(data);
-          });
-
-        return deferred.promise;
-      }
-
-      $scope.getEvents();
-      
+    eventsPromise.then(function (response, status, headers) {
+        console.log('Successfully Fetched Events');
+        $scope.isLoading = false;
+      }, function (error) {
+        console.log('Error in fetching Events');
+        $scope.isLoading = false;
+      })
+    };
+    
   }]);

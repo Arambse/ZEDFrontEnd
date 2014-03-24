@@ -12,11 +12,15 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
+<!--     <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" /> -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css"/>
+    <link rel="stylesheet" href="styles/events.css"/>
     <!-- endbuild -->
   </head>
   <body ng-app="ZedApp">
@@ -25,10 +29,11 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ui-view></div>
+    <div class="navigation-wrapper"></div>
+    <div class="main-wrapper" ui-view></div>
     <!-- We'll also add some navigation: -->
-    <a ui-sref="anonymous.login">State 2</a>
-    <a ui-sref="user.events.main">Anonymous</a>
+<!--     <a ui-sref="anonymous.login">State 2</a>
+    <a ui-sref="user.events.main">Anonymous</a> -->
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -73,6 +78,10 @@
     <script src="scripts/controllers/main_controller.js"></script>
     <script src="scripts/controllers/login_controller.js"></script>
     <script src="scripts/controllers/events_controller.js"></script>
+    <!-- Events Controllers -->
+    <script src="scripts/controllers/events/map_controller.js"></script>
+    <script src="scripts/controllers/events/events_list_controller.js"></script>
+
     <!-- endbuild -->
 </body>
 </html>

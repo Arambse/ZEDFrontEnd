@@ -1,5 +1,11 @@
-<div class="test" ui-view="navigation"></div>
-<div class="test" ui-view="map"></div>
-<div class="test" ui-view="times"></div>
-<div class="test" ui-view="events_list"></div>
-<div><button ng-click="getEvents()"></button></div>
+<link rel="stylesheet" href="../../styles/events/events.css"/>
+
+<div class="events-container">
+	<div class="map" ui-view="map"></div>
+	<div class="events-list" ui-view="events_list"></div>
+<!-- 	<div>
+		<button ng-click="getEvents()"></button>
+	</div> -->
+</div>
+
+

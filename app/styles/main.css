@@ -1,0 +1,14 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-wrapper {
+	height: 20%;
+	background: green;
+}
+
+.main-wrapper {
+    height: 80%;
+    margin: 0px;
+}

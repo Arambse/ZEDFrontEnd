@@ -47,13 +47,12 @@ angular.module('ZedApp', [
         url: '/events',
         views: {
           'map': {
-            templateUrl: 'views/events/map.html'
+            templateUrl: 'views/events/map.html',
+            controller: 'MapCtrl'
           },
           'events_list': {
-            templateUrl: 'views/events/events_list.html'
-          },
-          'navigation': {
-            templateUrl: 'views/events/navigation.html'
+            templateUrl: 'views/events/events_list.html',
+            controller: 'EventsListCtrl'
           },
           'times': {
             templateUrl: 'views/events/times.html'

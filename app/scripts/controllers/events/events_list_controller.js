@@ -1,12 +1,65 @@
 angular.module('ZedApp')
-  .controller('EventsListCtrl', ['$scope', '$state', '$q', '$http', 'Events', 'User',
-   function ($scope, $state, $q, $http, Events, User) {
-    
-   $scope.friends = [ {name:'John', phone:'555-1276'},
-                     {name:'Mary', phone:'800-BIG-MARY'},
-                     {name:'Mike', phone:'555-4321'},
-                     {name:'Adam', phone:'555-5678'},
-                     {name:'Julie', phone:'555-8765'},
-                    ];
-    
-  }]);
+  .controller('EventsListCtrl', ['$scope', '$state', '$location', 'ngTableParams', 'Events', 'User', 'GuestStatuses',
+   function ($scope, $state, $location, ngTableParams, Events, User, GuestStatuses) {
+
+	$scope.friends = [
+					 {name:'John', phone:'555-1276', status:'100'},
+                     {name:'Mary', phone:'800-BIG-MARY', status:'20'},
+                     {name:'Mike', phone:'555-4321', status:'30'},
+                     {name:'Adam', phone:'555-5678', status:'50'},
+                     {name:'Julie', phone:'555-8765', status:'8'},
+                     {name:'Juliette', phone:'555-5678', status:'10'}
+                     ];
+
+    $scope.initEvents = function(){
+    	if (!$scope.Events) {
+    		var startTime = '10:15';
+		    var endTime = '21:15';
+		    var today = '22/03/2014';
+		    var warnOnCollisions = true;
+		    var warnOnLateOrOpen =false;
+
+        	$scope.events = Events.getEvents(today, startTime, endTime, warnOnCollisions, warnOnLateOrOpen);
+    	}    		  
+    };
+
+    $scope.isTabActive = function(route) {
+    	
+    	var absolutePath = $location.path();
+    	var relativePath = absolutePath.slice(absolutePath.lastIndexOf('/'));
+        return route === relativePath;
+    };
+
+    $scope.tabClicked = function(tabName) {
+    	console.log('tab clicked with name ' + tabName);
+    	switch (tabName){
+			case GuestStatuses.All.englishName: {
+				$state.go('user.events.main.all');
+				console.log('All');
+				break;
+			}
+			case GuestStatuses.Sitting.englishName: {
+				$state.go('user.events.main.sitting');
+				console.log('Sitting');
+				break;
+			}
+			case GuestStatuses.Ordered.englishName: {
+				$state.go('user.events.main.ordered');
+				console.log('Ordered');
+				break;
+			}
+			case GuestStatuses.Occasional.englishName: {
+				$state.go('user.events.main.occasional');
+				console.log('Occasional');
+				break;
+			}
+			//Alarms
+			default: {
+				$state.go('user.events.main.alarms');
+				console.log('default');
+			}
+    	}
+    };
+
+    $scope.initEvents();
+}]);

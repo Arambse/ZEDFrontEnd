@@ -6,7 +6,8 @@ angular.module('ZedApp', [
   'ngSanitize',
   'ngRoute',
   'ui.router',
-  'LocalStorageModule'
+  'LocalStorageModule',
+  'ngTable'
 ])
   .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -59,5 +60,24 @@ angular.module('ZedApp', [
           }
         }
       });
+
+    //Private Filtering States
+    $stateProvider.
+      state('user.events.main.all', {
+        url: '/all',
+      })
+      .state('user.events.main.sitting', {
+        url: '/sitting',
+      })
+      .state('user.events.main.ordered', {
+        url: '/ordered',
+      })
+      .state('user.events.main.occasional', {
+        url: '/occasional',
+      })
+      .state('user.events.main.alarms', {
+        url: '/alarms',
+      });
+
   });
 

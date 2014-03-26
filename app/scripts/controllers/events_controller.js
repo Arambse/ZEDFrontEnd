@@ -6,12 +6,6 @@ angular.module('ZedApp')
   
     $scope.isLoading = true;
 
-    var startTime = '10:15';
-    var endTime = '21:15';
-    var today = '22/03/2014';
-    var warnOnCollisions = true;
-    var warnOnLateOrOpen =false;
-
     var eventsPromise = Events.getEvents(today, startTime, endTime, warnOnCollisions, warnOnLateOrOpen);
 
     eventsPromise.then(function (response, status, headers) {

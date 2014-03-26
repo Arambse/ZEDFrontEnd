@@ -14,9 +14,67 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+ 
+  // Grunt sass
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
+  // Load Grunt plugins
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+
+    // Get package meta data
+    pkg: grunt.file.readJSON('package.json'),
+
+    // Set project object
+    project: {
+      app: 'ZedApp',
+      assets: '<%= project.app %>/assets',
+      src: '<%= project.assets %>/src',
+      css: [
+        'app/styles/main.scss'
+      ],
+      js: [
+        '<%= project.src %>/js/*.js'
+      ]
+    },
+
+    //Project banner
+    tag: {
+      banner: '/*!\n' +
+              ' * <%= pkg.name %>\n' +
+              ' * <%= pkg.title %>\n' +
+              ' * <%= pkg.url %>\n' +
+              ' * @author <%= pkg.author %>\n' +
+              ' * @version <%= pkg.version %>\n' +
+              ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
+              ' */\n'
+    },
+
+    //Sass
+    sass: {
+      dev: {
+        options: {
+          style: 'expanded',
+          banner: '<%= tag.banner %>',
+          compass: true
+        },
+        files: {
+          '<%= project.assets %>/css/style.css': '<%= project.css %>'
+        }
+      },
+      dist: {
+        options: {
+          style: 'compressed',
+          compass: true
+        },
+        files: {
+          '<%= project.assets %>/css/style.css': '<%= project.css %>'
+        }
+      }
+    },
 
     // Project settings
     yeoman: {
@@ -27,6 +85,10 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      sass: {
+        files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
+        tasks: ['sass:dev']
+      },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all'],
@@ -418,18 +480,17 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
-
   //Added
-  grunt.registerTask('deploy_pages', [
-    'buildcontrol:pages'
-  ]);
+  // grunt.registerTask('deploy_pages', [
+  //   'buildcontrol:pages'
+  // ]);
 
-  grunt.registerTask('deploy_github', [
+  // grunt.registerTask('deploy_github', [
 
-  ]);
+  // ]);
 
-  grunt.registerTask('deploy_all', [
+  // grunt.registerTask('deploy_all', [
 
-  ]);  
+  // ]);  
 
 };

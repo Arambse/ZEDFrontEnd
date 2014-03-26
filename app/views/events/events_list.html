@@ -1,10 +1,42 @@
-<link rel="stylesheet" href="../../styles/events/events_list.css"/>
-
 <div class='events-list-container'>
-	<div class="times-bar"></div>
-	<div class="search-bar"></div>
-	<div class="events-filter-tabs-container">
-		<td class="events-list-data">
-		</td>
-	</div>
+  <div class="times-bar"></div>
+  <div class="search-bar">
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+	    <input type="text" class="form-control" placeholder="Search" ng-model="friendName">
+	  </div>
+       <button type="submit" class="btn btn-default">Search</button>
+	</form>
+  </div>
+  <div class="events-filter-tabs-container">
+	<ul class="nav nav-tabs">
+	  <li ng-class="{active:isTabActive('/all')}">
+	    <a href="#" ng-click="tabClicked('All')">All</a>
+	  </li>
+	  <li ng-class="{active:isTabActive('/sitting')}">
+		<a href="#" ng-click="tabClicked('Sitting')">Sitting</a>
+	  </li>
+	  <li ng-class="{active:isTabActive('/ordered')}">
+		<a href="#" ng-click="tabClicked('Ordered')">Ordered</a>
+	  </li>
+	  <li ng-class="{active:isTabActive('/occasional')}">
+		<a href="#" ng-click="tabClicked('Occasional')">Occasional</a>
+	  </li>
+	  <li ng-class="{active:isTabActive('/alarms')}">
+		<a href="#" ng-click="tabClicked('Alarms')">Alarms</a>
+	  </li>
+	</ul>
+  </div>
+  <div class="events-table-container">
+    <table>
+      <tbody>
+	    <tr ng-repeat="friend in friends | filter:{name:friendName}">
+	      <td>
+	      	{{friend.name}}
+	      </td>
+	      <td class="table-cell">{{friend.phone}}</td>
+	    </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

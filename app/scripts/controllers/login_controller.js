@@ -18,7 +18,7 @@ angular.module('ZedApp')
         localStorageService.add('zedAuthToken', User.sessionID);
     		$scope.isLoading = false;
     		$scope.isAuthenticated = true;
-    		$state.go('user.events.main');
+    		$state.go('user.events.main.all');
     	}, function (error) {
     		console.log('Error in login');
     		$scope.isLoading = false;

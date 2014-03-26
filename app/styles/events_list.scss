@@ -1,0 +1,30 @@
+$times-bar-height: 20%;
+$search-bar-height: 10%;
+$events-filter-tabs-container-height: 8%;
+
+/* Container */
+.events-list-container {
+	width: 100%;
+	height: 100%;
+}
+
+/* Upper Elements */
+.times-bar {
+	height: $times-bar-height;
+	background: orange;
+}
+
+.search-bar {
+	height: $search-bar-height;
+	background: yellow;
+}
+
+.events-filter-tabs-container {
+	height: $events-filter-tabs-container-height;
+	background:white;
+}
+
+.events-table-container {
+	height: 100% - $times-bar-height - $search-bar-height - $events-filter-tabs-container-height;
+	background: pink;
+}

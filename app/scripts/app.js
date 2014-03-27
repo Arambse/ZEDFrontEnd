@@ -6,7 +6,8 @@ angular.module('ZedApp', [
   'ngSanitize',
   'ngRoute',
   'ui.router',
-  'LocalStorageModule',
+  'ui.bootstrap',
+  'LocalStorageModule'
 ])
   .config(function ($stateProvider, $urlRouterProvider) {
 

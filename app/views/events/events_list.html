@@ -31,13 +31,31 @@
 	</ul>
   </div>
   <div class="events-table-container">
-    <table>
+    <table class="table table-hover">
+      <thead>
+      	<tr>
+          <td>Status</td>
+          <td>Name</td>
+          <td>Number</td> 
+          <td>table</td>
+          <td>hour</td>
+        </tr>
+      </thead>
       <tbody>
-	    <tr ng-repeat="friend in friends | filter:{name:friendName} | filter:{status:statusFilter}">
+	    <tr	ng-click="friend.expanded = !friend.expanded"
+	        ng-repeat-start="friend in friends | filter:{name:friendName} | filter:{status:statusFilter}">
 	      <td>{{friend.name}}</td>
 	      <td>{{friend.phone}}</td>
 	      <td>{{friend.status}}</td>
 	    </tr>
+	    <tr ng-if="friend.expanded" ng-repeat-end="">
+	      <td colspan="5">
+    		<div>
+    			<!-- insert expanded html here -->
+				asdasdasdasds
+    		</div>
+	      </td>
+        </tr>
       </tbody>
     </table>
   </div>

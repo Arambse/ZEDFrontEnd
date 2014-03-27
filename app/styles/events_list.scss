@@ -21,10 +21,15 @@ $events-filter-tabs-container-height: 8%;
 
 .events-filter-tabs-container {
 	height: $events-filter-tabs-container-height;
-	background:white;
+	background: white;
 }
 
 .events-table-container {
 	height: 100% - $times-bar-height - $search-bar-height - $events-filter-tabs-container-height;
 	background: pink;
+}
+
+/* Table Row */
+tr {
+	cursor: pointer;
 }

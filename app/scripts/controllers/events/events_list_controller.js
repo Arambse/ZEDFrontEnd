@@ -1,6 +1,6 @@
 angular.module('ZedApp')
-  .controller('EventsListCtrl', ['$scope', '$state', '$location', 'ngTableParams', 'Events', 'User', 'GuestStatuses',
-   function ($scope, $state, $location, ngTableParams, Events, User, GuestStatuses) {
+  .controller('EventsListCtrl', ['$scope', '$state', '$location', 'Events', 'User', 'GuestStatuses',
+   function ($scope, $state, $location, Events, User, GuestStatuses) {
 
 
 	//Data and Filters
@@ -14,6 +14,20 @@ angular.module('ZedApp')
                      ];
 
     $scope.statusFilter = null;
+
+    //Time picker
+
+    jQuery('#time-picker').timepicker({
+       defaultTime: 'current',
+	    minuteStep: 15,
+	    showMeridian: false,
+	    showWidget: true,
+	    disableFocus: true,
+	    template: 'dropdown'
+	});
+	jQuery('#date-picker').datepicker();
+
+
 
 	//Methods
     $scope.initEvents = function(){

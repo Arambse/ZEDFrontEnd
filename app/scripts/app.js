@@ -7,7 +7,6 @@ angular.module('ZedApp', [
   'ngRoute',
   'ui.router',
   'LocalStorageModule',
-  'ngTable'
 ])
   .config(function ($stateProvider, $urlRouterProvider) {
 

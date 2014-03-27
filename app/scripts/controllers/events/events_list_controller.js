@@ -16,7 +16,6 @@ angular.module('ZedApp')
     $scope.statusFilter = null;
 
     //Time picker
-
     jQuery('#time-picker').timepicker({
        defaultTime: 'current',
 	    minuteStep: 15,
@@ -25,53 +24,31 @@ angular.module('ZedApp')
 	    disableFocus: true,
 	    template: 'dropdown'
 	});
+	//Date Picker
 	jQuery('#date-picker').datepicker();
-
-
 
 	//Methods
     $scope.initEvents = function(){
-    	if (!$scope.Events) {
-    		var startTime = '10:15';
-		    var endTime = '21:15';
-		    var today = '22/03/2014';
-		    var warnOnCollisions = true;
-		    var warnOnLateOrOpen =false;
+		var startTime = '10:15';
+	    var endTime = '21:15';
+	    var today = '28/12/2013';
+	    var warnOnCollisions = true;
+	    var warnOnLateOrOpen =false;
 
-        	$scope.events = Events.getEvents(today, startTime, endTime, warnOnCollisions, warnOnLateOrOpen);
-    	}    		  
-    };
-
-    $scope.tabClicked = function(tabName) {
-    	console.log('tab clicked with name ' + tabName);
-    	switch (tabName){
-			case GuestStatuses.All.englishName: {
-				$state.go('user.events.main.all');
-				console.log('All');
-				break;
-			}
-			case GuestStatuses.Sitting.englishName: {
-				$state.go('user.events.main.sitting');
-				console.log('Sitting');
-				break;
-			}
-			case GuestStatuses.Ordered.englishName: {
-				$state.go('user.events.main.ordered');
-				console.log('Ordered');
-				break;
-			}
-			case GuestStatuses.Occasional.englishName: {
-				$state.go('user.events.main.occasional');
-				console.log('Occasional');
-				break;
-			}
-			//Alarms
-			default: {
-				$state.go('user.events.main.alarms');
-				console.log('default');
-			}
-    	}
-    };
+    	var eventsPromise = Events.getEvents(today, startTime, endTime, warnOnCollisions, warnOnLateOrOpen);
+	
+	    eventsPromise.then(function (response, status, headers) {
+	        console.log('Successfully Fetched Events');
+	        $scope.isLoading = false;
+			//Have no idea why upper object is d
+			var eventsJSON = JSON.parse(response['d']);
+	        $scope.events = eventsJSON.events;
+	        $scope.collisions = eventsJSON.collisions;
+	      }, function (error) {
+	        console.log('Error in fetching Events');
+	        $scope.isLoading = false;
+	      })
+    	};
 
     //Event Listening
     $scope.$on('$stateChangeStart', function(event, toState){ 

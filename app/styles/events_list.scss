@@ -1,5 +1,5 @@
 $times-bar-height: 20%;
-$search-bar-height: 10%;
+$search-bar-height: 15%;
 $events-filter-tabs-container-height: 8%;
 
 /* Container */
@@ -26,7 +26,7 @@ $events-filter-tabs-container-height: 8%;
 
 .events-table-container {
 	height: 100% - $times-bar-height - $search-bar-height - $events-filter-tabs-container-height;
-	background: pink;
+	background: white;
 }
 
 /* Table Row */

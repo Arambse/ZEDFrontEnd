@@ -10,20 +10,20 @@
   </div>
   <div class="events-filter-tabs-container">
 	<ul class="nav nav-tabs">
-	  <li ng-class="{active:isTabActive('/all')}">
-	    <a href="#" ng-click="tabClicked('All')">All</a>
+	  <li ui-sref-active="active">
+	    <a ui-sref="user.events.main.all">All</a>
 	  </li>
-	  <li ng-class="{active:isTabActive('/sitting')}">
-		<a href="#" ng-click="tabClicked('Sitting')">Sitting</a>
+	  <li ui-sref-active="active">
+		<a ui-sref="user.events.main.sitting">Sitting</a>
 	  </li>
-	  <li ng-class="{active:isTabActive('/ordered')}">
-		<a href="#" ng-click="tabClicked('Ordered')">Ordered</a>
+	  <li ui-sref-active="active">
+		<a ui-sref="user.events.main.ordered">Ordered</a>
 	  </li>
-	  <li ng-class="{active:isTabActive('/occasional')}">
-		<a href="#" ng-click="tabClicked('Occasional')">Occasional</a>
+	  <li ui-sref-active="active">
+		<a ui-sref="user.events.main.occasional" >Occasional</a>
 	  </li>
-	  <li ng-class="{active:isTabActive('/alarms')}">
-		<a href="#" ng-click="tabClicked('Alarms')">Alarms</a>
+	  <li ui-sref-active="active">
+		<a ui-sref="user.events.main.alarms">Alarms</a>
 	  </li>
 	</ul>
   </div>

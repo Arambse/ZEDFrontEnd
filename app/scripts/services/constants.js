@@ -1,5 +1,5 @@
 angular.module('ZedApp')
-.constant('SERVER_URL', 'http://10.0.0.12:54042/')
+.constant('SERVER_URL', 'http://10.0.0.3:54042/')
 .constant('SESSION_TOKEN_KEY', 'sessionID')
 .constant('USER_COOKIE_NAME','zUserInfo')
 .constant('LOGIN_URL', 'login/default.aspx/gettoken')

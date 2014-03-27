@@ -65,18 +65,33 @@ angular.module('ZedApp', [
     $stateProvider.
       state('user.events.main.all', {
         url: '/all',
+        data:{
+           statusFilter:'10'
+        }
       })
       .state('user.events.main.sitting', {
         url: '/sitting',
+        data:{
+           statusFilter:'100'
+        }
       })
       .state('user.events.main.ordered', {
         url: '/ordered',
+        data:{
+           statusFilter:'50'
+        }
       })
       .state('user.events.main.occasional', {
         url: '/occasional',
+        data:{
+           statusFilter:'20'
+        }
       })
       .state('user.events.main.alarms', {
         url: '/alarms',
+        data:{
+           statusFilter:'30'
+        }
       });
 
   });

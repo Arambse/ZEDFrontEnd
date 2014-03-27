@@ -2,6 +2,8 @@ angular.module('ZedApp')
   .controller('EventsListCtrl', ['$scope', '$state', '$location', 'ngTableParams', 'Events', 'User', 'GuestStatuses',
    function ($scope, $state, $location, ngTableParams, Events, User, GuestStatuses) {
 
+
+	//Data and Filters
 	$scope.friends = [
 					 {name:'John', phone:'555-1276', status:'100'},
                      {name:'Mary', phone:'800-BIG-MARY', status:'20'},
@@ -11,6 +13,9 @@ angular.module('ZedApp')
                      {name:'Juliette', phone:'555-5678', status:'10'}
                      ];
 
+    $scope.statusFilter = null;
+
+	//Methods
     $scope.initEvents = function(){
     	if (!$scope.Events) {
     		var startTime = '10:15';
@@ -21,13 +26,6 @@ angular.module('ZedApp')
 
         	$scope.events = Events.getEvents(today, startTime, endTime, warnOnCollisions, warnOnLateOrOpen);
     	}    		  
-    };
-
-    $scope.isTabActive = function(route) {
-    	
-    	var absolutePath = $location.path();
-    	var relativePath = absolutePath.slice(absolutePath.lastIndexOf('/'));
-        return route === relativePath;
     };
 
     $scope.tabClicked = function(tabName) {
@@ -61,5 +59,12 @@ angular.module('ZedApp')
     	}
     };
 
+    //Event Listening
+    $scope.$on('$stateChangeStart', function(event, toState){ 
+	    $scope.statusFilter = toState.data.statusFilter;
+	    console.log('status filter for state is ' + $scope.statusFilter);
+	});
+
+	//Run Code
     $scope.initEvents();
 }]);

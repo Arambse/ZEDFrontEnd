@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ZedApp', [
+var myApp = angular.module('ZedApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -8,10 +8,10 @@ angular.module('ZedApp', [
   'ui.router',
   'ui.bootstrap',
   'ngAnimate',
-  'LocalStorageModule'
+  'LocalStorageModule',
+  'ZedApp.Providers'
 ])
-  .config(function ($stateProvider, $urlRouterProvider) {
-
+  .config(function ($stateProvider, $urlRouterProvider, guestStatusesProvider) {
     $urlRouterProvider.otherwise('/login');
 
     //Anonymous user States
@@ -67,33 +67,32 @@ angular.module('ZedApp', [
       state('user.events.main.all', {
         url: '/all',
         data:{
-           statusFilter:'10'
+           statusFilter: guestStatusesProvider.statuses().All.englishName
         }
       })
       .state('user.events.main.sitting', {
         url: '/sitting',
         data:{
-           statusFilter:'100'
+           statusFilter: guestStatusesProvider.statuses().Sitting.englishName
         }
       })
       .state('user.events.main.ordered', {
         url: '/ordered',
         data:{
-           statusFilter:'50'
+           statusFilter: guestStatusesProvider.statuses().Ordered.englishName
         }
       })
       .state('user.events.main.occasional', {
         url: '/occasional',
         data:{
-           statusFilter:'20'
+           statusFilter: guestStatusesProvider.statuses().Occasional.englishName
         }
       })
       .state('user.events.main.alarms', {
         url: '/alarms',
         data:{
-           statusFilter:'30'
+           // statusFilter: guestStatusesProvider.statuses().Alarms.englishName
         }
       });
 
   });
-

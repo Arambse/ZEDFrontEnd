@@ -1,6 +1,6 @@
 angular.module('ZedApp')
-  .controller('EventsListCtrl', ['$scope', '$state', '$location', 'Events', 'User', 'GuestStatuses',
-   function ($scope, $state, $location, Events, User, GuestStatuses) {
+  .controller('EventsListCtrl', ['$scope', '$state', '$location', 'Events', 'User',
+   function ($scope, $state, $location, Events, User) {
 
 
 	//Data and Filters

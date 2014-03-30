@@ -1,4 +1,4 @@
-angular.module('ZedApp').service('EventStatuses', [ function() {
+angular.module('ZedApp.Services', []).service('EventStatuses', [ function() {
 
   return eventsStatusesEnum = {
   	Ordered: { identifierCode: '40', color: 'orange', englishName: 'Ordered', hebrewName: 'מוזמן'},

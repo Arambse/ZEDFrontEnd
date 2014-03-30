@@ -6,10 +6,10 @@ angular.module('ZedApp')
 	//Data and Filters
 	$scope.friends = [
 					 {name:'John', phone:'555-1276', status:'100', expanded: false},
-                     {name:'Mary', phone:'800-BIG-MARY', status:'20', expanded: false},
-                     {name:'Mike', phone:'555-4321', status:'30', expanded: false},
-                     {name:'Adam', phone:'555-5678', status:'50', expanded: false},
-                     {name:'Julie', phone:'555-8765', status:'8', expanded: false},
+                     {name:'Mary', phone:'800-BIG-MARY', status:'10', expanded: false},
+                     {name:'Mike', phone:'555-4321', status:'10', expanded: false},
+                     {name:'Adam', phone:'555-5678', status:'10', expanded: false},
+                     {name:'Julie', phone:'555-8765', status:'10', expanded: false},
                      {name:'Juliette', phone:'555-5678', status:'10', expanded: false}
                      ];
 

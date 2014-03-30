@@ -7,6 +7,7 @@ angular.module('ZedApp', [
   'ngRoute',
   'ui.router',
   'ui.bootstrap',
+  'ngAnimate',
   'LocalStorageModule'
 ])
   .config(function ($stateProvider, $urlRouterProvider) {

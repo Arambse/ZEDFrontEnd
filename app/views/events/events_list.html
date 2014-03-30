@@ -42,13 +42,13 @@
         </tr>
       </thead>
       <tbody>
-	    <tr	ng-click="friend.expanded = !friend.expanded"
+	    <tr	class="animated-event-row" ng-click="friend.expanded = !friend.expanded"
 	        ng-repeat-start="friend in friends | filter:{name:friendName} | filter:{status:statusFilter}">
 	      <td>{{friend.name}}</td>
 	      <td>{{friend.phone}}</td>
 	      <td>{{friend.status}}</td>
 	    </tr>
-	    <tr ng-if="friend.expanded" ng-repeat-end="">
+	    <tr class="animated-event-row" ng-if="friend.expanded" ng-repeat-end="">
 	      <td colspan="5">
             <div>
             	<div>

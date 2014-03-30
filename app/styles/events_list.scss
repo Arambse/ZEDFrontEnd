@@ -2,6 +2,26 @@ $times-bar-height: 20%;
 $search-bar-height: 15%;
 $events-filter-tabs-container-height: 8%;
 
+@mixin animated-event-row-transition($time) {
+  -webkit-transition: $time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: $time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: $time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: $time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: $time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  // display: block;
+}
+@mixin animated-event-row-leave-animation() {
+  opacity: 1;
+  top: 0;
+  height: 30px;
+}
+@mixin animated-event-row-enter-animation() {
+  opacity: 0;
+  top: -50px;
+  height: 0px;
+}
+
 /* Container */
 .events-list-container {
 	width: 100%;
@@ -37,27 +57,17 @@ tr {
 .animated-event-row.ng-enter, 
 .animated-event-row.ng-leave
 { 
-  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  position: relative;
-  display: block;
+  @include animated-event-row-transition(400ms);
 } 
  
 .animated-event-row.ng-enter.animated-event-row.ng-enter-active, 
 .animated-event-row.ng-leave {
-  opacity: 1;
-  top: 0;
-  height: 30px;
+  @include animated-event-row-leave-animation();
 }
  
 .animated-event-row.ng-leave.animated-event-row.ng-leave-active,
 .animated-event-row.ng-enter {
-  opacity: 0;
-  top: -50px;
-  height: 0px;
+  @include animated-event-row-enter-animation();
 }
 
 .animated-event-row.ng-hide {

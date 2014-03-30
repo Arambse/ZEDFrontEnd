@@ -34,7 +34,7 @@ angular.module('ZedApp', [
     $stateProvider
       .state('user', {
         abstract: true,
-        url: '/user',
+        url: '',
         template: '<ui-view/>'
       }).
       //Abstract because views override templateUrl property

@@ -3,18 +3,19 @@
 	height: 100%;
 }
 
-.map {
-	width: 65%;
-	height: 100%;
-	position: relative;
-	background: blue; 
-}
-
 .events-list {
 	width: 35%;
 	height: 100%;
 	position: relative;
-	left: 65%;
 	bottom: 100%;
 	background: red; 
 }
+
+.map {
+	width: 65%;
+	height: 100%;
+	position: relative;
+	left: 35%;
+	background: blue; 
+}
+

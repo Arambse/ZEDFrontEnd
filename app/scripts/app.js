@@ -50,15 +50,15 @@ var myApp = angular.module('ZedApp', [
         url: '/events',
         views: {
           'map': {
-            templateUrl: 'views/events/map.html',
+            templateUrl: 'views/partials/map.html',
             controller: 'MapCtrl'
           },
           'events_list': {
-            templateUrl: 'views/events/events_list.html',
+            templateUrl: 'views/partials/events-list.html',
             controller: 'EventsListCtrl'
           },
           'times': {
-            templateUrl: 'views/events/times.html'
+            templateUrl: 'views/partials/times.html'
           }
         }
       });

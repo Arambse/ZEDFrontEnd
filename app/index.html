@@ -23,7 +23,7 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css"/>
     <link rel="stylesheet" href="styles/events.css"/>
-    <link rel="stylesheet" href="styles/events_list.css"/>
+    <link rel="stylesheet" href="styles/events-list.css"/>
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
@@ -84,24 +84,28 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/services/authentication_service.js"></script>
-    <script src="scripts/services/events_service.js"></script>
-    <script src="scripts/services/user_service.js"></script>
+    <script src="scripts/services/authentication.js"></script>
+    <script src="scripts/services/events.js"></script>
+    <script src="scripts/services/user.js"></script>
     <script src="scripts/services/constants.js"></script>
-    <script src="scripts/services/enumerations/guest_statuses.js"></script>
-    <script src="scripts/services/enumerations/event_statuses.js"></script>
+    <script src="scripts/services/event-statuses.js"></script>
+
+    <!-- Providers -->
+    <script src="scripts/providers/guest-statuses.js"></script>
 
     <!-- Filters -->
-     <script src="scripts/filters/event_status_filter.js"></script>
+    <script src="scripts/filters/event-status-filter.js"></script>
 
     <!-- Controllers -->
-    <script src="scripts/controllers/main_controller.js"></script>
-    <script src="scripts/controllers/login_controller.js"></script>
-    <script src="scripts/controllers/events_controller.js"></script>
-    <!-- Events Controllers -->
-    <script src="scripts/controllers/events/map_controller.js"></script>
-    <script src="scripts/controllers/events/events_list_controller.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/events.js"></script>
+   
+    <!-- Partial Controllers -->
+    <script src="scripts/controllers/partials/map.js"></script>
+    <script src="scripts/controllers/partials/events-list.js"></script>
 
     <!-- endbuild -->
+    
 </body>
 </html>

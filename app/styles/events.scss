@@ -1,10 +1,11 @@
+$events-list-width: 35%;
 
 .events-container {
 	height: 100%;
 }
 
 .events-list {
-	width: 35%;
+	width: $events-list-width;
 	height: 100%;
 	position: relative;
 	bottom: 100%;
@@ -12,7 +13,7 @@
 }
 
 .map {
-	width: 65%;
+	width: 100 - $events-list-width;
 	height: 100%;
 	position: relative;
 	left: 35%;

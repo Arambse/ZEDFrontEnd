@@ -1,7 +1,9 @@
 angular.module('ZedApp')
-  .controller('EventsListCtrl', ['$scope', '$state', '$location', 'Events', 'User',
-   function ($scope, $state, $location, Events, User) {
+  .controller('EventsListCtrl', ['$scope', '$state', '$location', 'Events', 'User', 'Shifts',
+   function ($scope, $state, $location, Events, User, Shifts) {
 
+   	console.log(JSON.stringify(Shifts.Morning.times, null, '\t'));
+ 
     $scope.statusFilter = $state.current.data.statusFilter;
 
     //Time picker

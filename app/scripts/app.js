@@ -10,7 +10,8 @@ var myApp = angular.module('ZedApp', [
   'ngAnimate',
   'LocalStorageModule',
   'ZedApp.Providers',
-  'ZedApp.Filters'
+  'ZedApp.Filters',
+  'ZedApp.Services'
 ])
   .config(function ($stateProvider, $urlRouterProvider, guestStatusesProvider) {
     $urlRouterProvider.otherwise('/login');

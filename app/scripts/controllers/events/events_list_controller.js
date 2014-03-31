@@ -2,7 +2,7 @@ angular.module('ZedApp')
   .controller('EventsListCtrl', ['$scope', '$state', '$location', 'Events', 'User',
    function ($scope, $state, $location, Events, User) {
 
-    $scope.statusFilter = null;
+    $scope.statusFilter = $state.current.data.statusFilter;
 
     //Time picker
     jQuery('#time-picker').timepicker({
@@ -13,6 +13,7 @@ angular.module('ZedApp')
 	    disableFocus: true,
 	    template: 'dropdown'
 	});
+
 	//Date Picker
 	jQuery('#date-picker').datepicker();
 
@@ -25,7 +26,7 @@ angular.module('ZedApp')
 	    var warnOnLateOrOpen =false;
 
     	var eventsPromise = Events.getEvents(today, startTime, endTime, warnOnCollisions, warnOnLateOrOpen);
-	
+
 	    eventsPromise.then(function (response, status, headers) {
 	        console.log('Successfully Fetched Events');
 	        $scope.isLoading = false;

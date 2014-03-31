@@ -1,7 +1,7 @@
 angular.module('ZedApp')
   .controller('EventsCtrl', ['$scope', '$state', '$q', '$http', 'Events', 'User',
    function ($scope, $state, $q, $http, Events, User) {
-    
+
   $scope.getEvents = function () {
   
     $scope.isLoading = true;

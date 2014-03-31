@@ -6,7 +6,7 @@
   <div class="search-bar">
     <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
-	    <input type="text" class="form-control" placeholder="Search" ng-model="friendName">
+	    <input type="text" class="form-control" placeholder="Search" ng-model="eventClientName">
 	  </div>
        <button type="submit" class="btn btn-default">Search</button>
 	</form>
@@ -43,7 +43,7 @@
       </thead>
       <tbody>
 	    <tr	class="animated-event-row" ng-click="event.expanded = !event.expanded"
-	        ng-repeat-start="event in events | filter:{name:friendName} | eventStatus:statusFilter">
+	        ng-repeat-start="event in events | filter:{client_name:eventClientName} | eventStatus:statusFilter">
 	      <td>{{event.client_name}}</td>
 	      <td>{{event.id_event_status}}</td>
 	      <td>{{friend.seats}}</td>

@@ -1,29 +1,28 @@
-angular.module('ZedApp')
-  .filter('eventStatus', ['GuestStatuses', function () {
-  return function (input, chosenStatus) {
-    console.log("chosenStatus:");
-    console.log(chosenStatus);
-    if (typeof chosenStatus == 'undefined' || chosenStatus == null || chosenStatus == -1) {
+angular.module('ZedApp.Filters', ['ZedApp.Providers'])
+  .filter('eventStatus', ['guestStatuses', function (guestStatusesProvider) {
+  return function (input, currentStatus) {
+    console.log('Filtering events for current status ' + currentStatus);
+    if (typeof currentStatus == 'undefined' || currentStatus == null || currentStatus == -1) {
       return input;
     } else {
       var out = [];
       var statuses = -1;
-      switch (chosenStatus) {
-        case GuestStatuses.Sitting.identifierCode:
-          statuses = GuestStatuses.Sitting.showStatus;
+      switch (currentStatus) {
+        case guestStatusesProvider.statuses().Sitting.englishName:
+          statuses = guestStatusesProvider.statuses().Sitting.showStatus;
           break;
-        case GuestStatuses.Ordered.identifierCode:
-          statuses = GuestStatuses.Ordered.showStatus;
+        case guestStatusesProvider.statuses().Ordered.englishName:
+          statuses = guestStatusesProvider.statuses().Ordered.showStatus;
           break;
-        case GuestStatuses.Occasional.identifierCode:
-          statuses = GuestStatuses.Occasional.showStatus;
+        case guestStatusesProvider.statuses().Occasional.englishName:
+          statuses = guestStatusesProvider.statuses().Occasional.showStatus;
           break;
-        case GuestStatuses.All.identifierCode:
-          statuses = GuestStatuses.All.showStatus;
+        case guestStatusesProvider.statuses().All.englishName:
+          statuses = guestStatusesProvider.statuses().All.showStatus;
           break;
         default:
       }
-      if (GuestStatuses.All.showStatus == statuses) {
+      if (guestStatusesProvider.statuses().All.showStatus == statuses) {
         for (i = 0; i < input.length; i++) {
           if (input[i].alertStatusID > 0) {
             out.push(input[i]);

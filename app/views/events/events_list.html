@@ -43,7 +43,7 @@
       </thead>
       <tbody>
 	    <tr	class="animated-event-row" ng-click="event.expanded = !event.expanded"
-	        ng-repeat-start="event in events | filter:{name:friendName}">
+	        ng-repeat-start="event in events | filter:{name:friendName} | eventStatus:statusFilter">
 	      <td>{{event.client_name}}</td>
 	      <td>{{event.id_event_status}}</td>
 	      <td>{{friend.seats}}</td>

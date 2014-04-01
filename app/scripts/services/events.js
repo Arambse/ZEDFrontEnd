@@ -3,11 +3,12 @@ angular.module('ZedApp').service('Events',
     function($http, $window, $q, User, SERVER_URL, GET_EVENTS_URL) {
       
       var events = null;
+      var collisions = null;
 
       this.getEvents = function(date, warnOnCollisions, warnOnLateOrOpen ) {
       
-        var startTime = '00:01';
-        var endTime = '23:59';
+        var startTime = '06:00';
+        var endTime = '02:00';
         
         console.log("getting events for: " + date + ", " + startTime + ", " + endTime);
         console.log('for user ' +  User.username + ' with session id ' + User.sessionID);
@@ -24,7 +25,10 @@ angular.module('ZedApp').service('Events',
           {headers: headers})
           .success(function(data) {
             console.log(data);
-            deferred.resolve(data);
+            var eventsJSON = JSON.parse(data['d']);
+            events = eventsJSON.events;
+            collisions = eventsJSON.collisions;
+            deferred.resolve({events: events, collisions: collisions });
           })
           .error(function(data) {
             console.error(data);

@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-md-4">
-    <input ng-model="currentDate" id="date-picker" class="form-control">
-    <button ng-click="onClick()"></button>
+    <input ng-model="currentDate" id="date-picker" class="form-control" data-date-format="dd/mm/yyyy">
   </div>
   <div class="col-md-4">
   	<select ng-model="currentShift" ng-options="v as k for (k,v) in shifts">

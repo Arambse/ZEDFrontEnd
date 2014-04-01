@@ -30,7 +30,6 @@ angular.module('ZedApp.Services')
   }
 
   function generateTimes(startTime, endTime, interval, timeFormat) {
-
     var startTimeMoment = moment(startTime,timeFormat);
     var endTimeMoment = moment(endTime,timeFormat);
     var durationInMinutes = Math.abs(endTimeMoment.diff(startTimeMoment,'Minutes'));

@@ -5,13 +5,9 @@ angular.module('ZedApp')
     $scope.statusFilter = $state.current.data.statusFilter;
 
 	//Methods
-    $scope.getEvents = function(){
-	    
-	    var today = '28/12/2013';
-	    var warnOnCollisions = true;
-	    var warnOnLateOrOpen =false;
+    $scope.getEvents = function(date, warnOnCollisions, warnOnLateOrOpen){
 
-    	var eventsPromise = Events.getEvents(today, warnOnCollisions, warnOnLateOrOpen);
+        var eventsPromise = Events.getEvents(date, warnOnCollisions, warnOnLateOrOpen);
 
 	    eventsPromise.then(function (data, status, headers) {
 	        console.log('Successfully Fetched Events');
@@ -21,8 +17,8 @@ angular.module('ZedApp')
 	      }, function (error) {
 	        console.log('Error in fetching Events');
 	        $scope.isLoading = false;
-	      })
-    	};
+      });
+	};
 
     //Event Listening
     $scope.$on('$stateChangeStart', function(event, toState){ 
@@ -32,7 +28,7 @@ angular.module('ZedApp')
 
 	//Date, Time and Shift filters changed
 	$scope.$on(DATE_FILTER_CHANGED, function(event, args) {
-		// $scope.getEvents();
+		$scope.getEvents(args, warnOnCollisions, warnOnLateOrOpen);
 	});
 	$scope.$on(TIME_FILTER_CHANGED, function(event, args) {
 		$scope.currentTime = args;
@@ -42,6 +38,10 @@ angular.module('ZedApp')
 	});
 
 	//Run Code
-    $scope.getEvents();
+    var today = '28/12/2013';
+    var warnOnCollisions = true;
+    var warnOnLateOrOpen =false;
+    
+    $scope.getEvents(today, warnOnCollisions, warnOnLateOrOpen);
 
 }]);

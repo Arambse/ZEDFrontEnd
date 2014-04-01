@@ -5,13 +5,14 @@ angular.module('ZedApp')
       $scope.shifts = Shifts;
       $scope.currentShift = Shifts['Morning'];
       $scope.currentTime = null;
+      $scope.currentDate = moment().format('DD/MM/YY');
 
       //Date Picker
       jQuery('#date-picker').datepicker()
         .on('changeDate', function(ev) {
           var newDate = new Date(ev.date)
-          newDate.setDate(newDate.getDate() + 1);
           currentDate = newDate;
+          console.log('sdasdsadsasad' + currentDate);
         });
 
       //Broadcasting for filtering reasons

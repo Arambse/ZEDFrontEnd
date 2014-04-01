@@ -1,4 +1,16 @@
-<div class='times-container'>
-  <input id="date-picker">
-  <input id="time-picker">
+<div class="row">
+  <div class="col-md-4">
+    <input id="date-picker" class="form-control">
+    <button ng-click="onClick()"></button>
+  </div>
+  <div class="col-md-4">
+  	<select ng-model="currentShift" ng-options="v as k for (k,v) in shifts">
+  	</select>
+  </div>
+   <div class="col-md-4">
+  	<select ng-model="currentTime" ng-options="time for time in currentShift.times">
+	  <option value="">Entire Shift</option>
+  	</select>
+  </div>
 </div>
+<!-- class="form-control -->

@@ -4,8 +4,11 @@ angular.module('ZedApp').service('Events',
       
       var events = null;
 
-      this.getEvents = function(date, startTime, endTime, warnOnCollisions, warnOnLateOrOpen ) {
+      this.getEvents = function(date, warnOnCollisions, warnOnLateOrOpen ) {
       
+        var startTime = '00:01';
+        var endTime = '23:59';
+        
         console.log("getting events for: " + date + ", " + startTime + ", " + endTime);
         console.log('for user ' +  User.username + ' with session id ' + User.sessionID);
         

@@ -7,7 +7,7 @@ angular.module('ZedApp').service('User',
     this.updateUserDetailes = function(username, sessionID) {
       this.username = username;
       this.sessionID = sessionID;
-	  console.log('updated username ' + username + ' with sessionID ' + sessionID);
+  	  console.log('updated username ' + username + ' with sessionID ' + sessionID);
       this.notifyObservers(this.sessionID);
     };
 

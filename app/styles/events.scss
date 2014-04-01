@@ -1,22 +1,36 @@
-$events-list-width: 35%;
+$events-list-container-width: 35%;
+$times-container-height: 12%;
 
-.events-container {
+#events-container {
 	height: 100%;
 }
 
-.events-list {
-	width: $events-list-width;
+#events-list-container {
+	width: $events-list-container-width;
 	height: 100%;
 	position: relative;
+	left: 0%;
 	bottom: 100%;
 	background: red; 
+
+	.times-container {
+		width: 100%;
+		height: $times-container-height;
+		position: relative;
+		background: yellow;
+	}
+
+	.events-list-container {
+		width: 100%;
+		height: 100 - $times-container-height;
+		background: red; 
+	}
 }
 
-.map {
-	width: 100 - $events-list-width;
+#map-container {
+	width: 100 - $events-list-container-width;
 	height: 100%;
 	position: relative;
 	left: 35%;
 	background: blue; 
 }
-

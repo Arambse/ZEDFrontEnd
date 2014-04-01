@@ -6,7 +6,6 @@ angular.module('ZedApp.Filters', ['ZedApp.Providers'])
       console.log('No data sent to filter');
       return input;
     }
-
     var filterdArray = [];
     switch (currentStatus) {
       case guestStatusesProvider.statuses().Sitting.englishName:

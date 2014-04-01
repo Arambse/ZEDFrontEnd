@@ -1,23 +1,8 @@
 angular.module('ZedApp')
   .controller('EventsListCtrl', ['$scope', '$state', '$location', 'Events', 'User', 'Shifts',
    function ($scope, $state, $location, Events, User, Shifts) {
-
-   	console.log(JSON.stringify(Shifts.Morning.times, null, '\t'));
  
     $scope.statusFilter = $state.current.data.statusFilter;
-
-    //Time picker
-    jQuery('#time-picker').timepicker({
-       defaultTime: 'current',
-	    minuteStep: 15,
-	    showMeridian: false,
-	    showWidget: true,
-	    disableFocus: true,
-	    template: 'dropdown'
-	});
-
-	//Date Picker
-	jQuery('#date-picker').datepicker();
 
 	//Methods
     $scope.initEvents = function(){

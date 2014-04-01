@@ -2,6 +2,8 @@ angular.module('ZedApp').service('Events',
   ['$http', '$window', '$q', 'User', 'SERVER_URL', 'GET_EVENTS_URL',
     function($http, $window, $q, User, SERVER_URL, GET_EVENTS_URL) {
       
+      var events = null;
+
       this.getEvents = function(date, startTime, endTime, warnOnCollisions, warnOnLateOrOpen ) {
       
         console.log("getting events for: " + date + ", " + startTime + ", " + endTime);
@@ -28,4 +30,5 @@ angular.module('ZedApp').service('Events',
 
         return deferred.promise;
       };
+
 }]);

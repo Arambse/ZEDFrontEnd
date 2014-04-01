@@ -1,69 +1,63 @@
-<div class='events-list-container'>
-  <div class="times-bar">
-		<input id="date-picker">
-        <input id="time-picker">
+<div class="search-bar">
+<form class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search" ng-model="eventClientName">
   </div>
-  <div class="search-bar">
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-	    <input type="text" class="form-control" placeholder="Search" ng-model="eventClientName">
-	  </div>
-       <button type="submit" class="btn btn-default">Search</button>
-	</form>
-  </div>
-  <div class="events-filter-tabs-container">
-	<ul class="nav nav-tabs">
-	  <li ui-sref-active="active">
-	    <a ui-sref="user.events.main.all">All</a>
-	  </li>
-	  <li ui-sref-active="active">
-		<a ui-sref="user.events.main.sitting">Sitting</a>
-	  </li>
-	  <li ui-sref-active="active">
-		<a ui-sref="user.events.main.ordered">Ordered</a>
-	  </li>
-	  <li ui-sref-active="active">
-		<a ui-sref="user.events.main.occasional">Occasional</a>
-	  </li>
-	  <li ui-sref-active="active">
-		<a ui-sref="user.events.main.alarms">Alarms</a>
-	  </li>
-	</ul>
-  </div>
-  <div class="events-table-container">
-    <table class="table table-hover">
-      <thead>
-      	<tr>
-          <td>Status</td>
-          <td>Name</td>
-          <td>Number of Seats</td> 
-          <td>Table</td>
-          <td>Hour</td>
-        </tr>
-      </thead>
-      <tbody>
-	    <tr	class="animated-event-row" ng-click="event.expanded = !event.expanded"
-	        ng-repeat-start="event in events | filter:{client_name:eventClientName} | eventStatus:statusFilter">
-	      <td>{{event.id_event_status}}</td>
-	      <td>{{event.client_name}}</td>
-	      <td>{{event.guest_count}}</td>
-	      <td>{{event.seats}}</td>
-	      <td>{{event.start_time}}</td>
-	    </tr>
-	    <tr class="animated-event-row" ng-if="event.expanded" ng-repeat-end="">
-	      <td colspan="5">
-            <div>
-            	<div>
-					adsadsad
-					<p>sdfsdfdsf</p>
-					<h3>asdFASDFS</h3>
-            	</div>
-    			<!-- insert expanded html here -->
-				asdasdasdasds
-    		</div>
-	      </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+   <button type="submit" class="btn btn-default">Search</button>
+</form>
+</div>
+<div class="events-filter-tabs-container">
+<ul class="nav nav-tabs">
+  <li ui-sref-active="active">
+    <a ui-sref="user.events.main.all">All</a>
+  </li>
+  <li ui-sref-active="active">
+	<a ui-sref="user.events.main.sitting">Sitting</a>
+  </li>
+  <li ui-sref-active="active">
+	<a ui-sref="user.events.main.ordered">Ordered</a>
+  </li>
+  <li ui-sref-active="active">
+	<a ui-sref="user.events.main.occasional">Occasional</a>
+  </li>
+  <li ui-sref-active="active">
+	<a ui-sref="user.events.main.alarms">Alarms</a>
+  </li>
+</ul>
+</div>
+<div class="events-table-container">
+<table class="table table-hover">
+  <thead>
+  	<tr>
+      <td>Status</td>
+      <td>Name</td>
+      <td>Number of Seats</td> 
+      <td>Table</td>
+      <td>Hour</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr	class="animated-event-row" ng-click="event.expanded = !event.expanded"
+        ng-repeat-start="event in events | filter:{client_name:eventClientName} | eventStatus:statusFilter">
+      <td>{{event.id_event_status}}</td>
+      <td>{{event.client_name}}</td>
+      <td>{{event.guest_count}}</td>
+      <td>{{event.seats}}</td>
+      <td>{{event.start_time}}</td>
+    </tr>
+    <tr class="animated-event-row" ng-if="event.expanded" ng-repeat-end="">
+      <td colspan="5">
+        <div>
+        	<div>
+				adsadsad
+				<p>sdfsdfdsf</p>
+				<h3>asdFASDFS</h3>
+        	</div>
+			<!-- insert expanded html here -->
+			asdasdasdasds
+		</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 </div>

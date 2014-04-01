@@ -58,8 +58,9 @@ var myApp = angular.module('ZedApp', [
             templateUrl: 'views/partials/events-list.html',
             controller: 'EventsListCtrl'
           },
-          'times': {
-            templateUrl: 'views/partials/times.html'
+          'times' : {
+            templateUrl: 'views/partials/times.html',
+            controller: 'TimesCtrl'
           }
         }
       });

@@ -1,26 +1,7 @@
-$times-bar-height: 20%;
-$search-bar-height: 15%;
-$events-filter-tabs-container-height: 8%;
+@import 'transitions';
 
-@mixin animated-event-row-transition($time) {
-  -webkit-transition: $time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  -moz-transition: $time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  -ms-transition: $time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  -o-transition: $time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  transition: $time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  position: relative;
-  // display: block;
-}
-@mixin animated-event-row-leave-animation() {
-  opacity: 1;
-  top: 0;
-  height: 30px;
-}
-@mixin animated-event-row-enter-animation() {
-  opacity: 0;
-  top: -50px;
-  height: 0px;
-}
+$search-bar-height: 15%;
+$events-filter-tabs-container-height: 10%;
 
 /* Container */
 .events-list-container {
@@ -29,14 +10,9 @@ $events-filter-tabs-container-height: 8%;
 }
 
 /* Upper Elements */
-.times-bar {
-	height: $times-bar-height;
-	background: orange;
-}
-
 .search-bar {
 	height: $search-bar-height;
-	background: yellow;
+	background: green;
 }
 
 .events-filter-tabs-container {
@@ -45,7 +21,7 @@ $events-filter-tabs-container-height: 8%;
 }
 
 .events-table-container {
-	height: 100% - $times-bar-height - $search-bar-height - $events-filter-tabs-container-height;
+	height: 100% - $search-bar-height - $events-filter-tabs-container-height;
 	background: white;
 	overflow: auto;
 }

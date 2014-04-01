@@ -1,11 +1,13 @@
 angular.module('ZedApp.Filters', ['ZedApp.Providers'])
   .filter('eventStatus', ['guestStatuses', function (guestStatusesProvider) {
   return function (input, currentStatus) {
+
     console.log('Filtering events for current status ' + currentStatus);
     if (typeof input === 'undefined' || input === null || currentStatus == null) {
       console.log('No data sent to filter');
       return input;
     }
+    
     var filterdArray = [];
     switch (currentStatus) {
       case guestStatusesProvider.statuses().Sitting.englishName:

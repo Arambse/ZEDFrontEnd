@@ -1,9 +1,8 @@
 angular.module('ZedApp')
-  .controller('EventsListCtrl', ['$scope', '$state', '$location', 'Events', 'User', 'Shifts', 'DATE_FILTER_CHANGED', 'TIME_FILTER_CHANGED',
-   function ($scope, $state, $location, Events, User, Shifts, DATE_FILTER_CHANGED, TIME_FILTER_CHANGED) {
+  .controller('EventsListCtrl', ['$scope', '$state', '$location', 'Events', 'User', 'Shifts', 'DATE_FILTER_CHANGED', 'TIME_FILTER_CHANGED', 'SHIFT_FILTER_CHANGED',
+   function ($scope, $state, $location, Events, User, Shifts, DATE_FILTER_CHANGED, TIME_FILTER_CHANGED, SHIFT_FILTER_CHANGED) {
  
     $scope.statusFilter = $state.current.data.statusFilter;
-    $scope.timeFilter = null;
 
 	//Methods
     $scope.getEvents = function(){
@@ -30,15 +29,19 @@ angular.module('ZedApp')
 	    $scope.statusFilter = toState.data.statusFilter;
 	    console.log('status filter for state is ' + $scope.statusFilter);
 	});
-	//Date and Time filters changed
+
+	//Date, Time and Shift filters changed
 	$scope.$on(DATE_FILTER_CHANGED, function(event, args) {
-		console.log('Date Filter changed received broadcast');
 		// $scope.getEvents();
 	});
 	$scope.$on(TIME_FILTER_CHANGED, function(event, args) {
-		console.log('Time Filter changed received broadcast');
+		$scope.currentTime = args;
+	});
+	$scope.$on(SHIFT_FILTER_CHANGED, function(event, args) {
+		$scope.currentShift = args;
 	});
 
 	//Run Code
     $scope.getEvents();
+
 }]);

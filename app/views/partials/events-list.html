@@ -38,7 +38,10 @@
   </thead>
   <tbody>
     <tr	class="animated-event-row" ng-click="event.expanded = !event.expanded"
-        ng-repeat-start="event in events | filter:{client_name:eventClientName} | eventStatus:statusFilter">
+        ng-repeat-start="event in events |
+        filter:{client_name: eventClientName} |
+        eventStatus: statusFilter |
+        time: currentTime:currentShift">
       <td>{{event.id_event_status}}</td>
       <td>{{event.client_name}}</td>
       <td>{{event.guest_count}}</td>

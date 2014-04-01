@@ -6,6 +6,7 @@ angular.module('ZedApp.Services')
   var morningStartTime = '08:00', morningEndTime = '12:00';
   var noonStartTime = '12:00', noonEndTime = '20:00';
   var eveningStartTime = '20:00', eveningEndTime = '06:00';
+  
   var timesInterval = 15;
 
   var morningTimes = null;

@@ -40,7 +40,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="navigation-wrapper"></div>
+    <div class="navigation-wrapper" ng-controller="NavCtrl" 
+         ng-include src="'views/partials/navigation.html'"></div>
     <div class="main-wrapper" ui-view></div>
     <!-- We'll also add some navigation: -->
 <!--     <a ui-sref="anonymous.login">State 2</a>
@@ -102,6 +103,9 @@
     <script src="scripts/services/shifts.js"></script>
     <script src="scripts/services/shifts-times.js"></script>
 
+    <!-- Directives -->
+    <script src="scripts/directives/date-picker.js"></script>
+
     <!-- Providers -->
     <script src="scripts/providers/guest-statuses.js"></script>
 
@@ -113,12 +117,11 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/events.js"></script>
-
-   
     <!-- Partial Controllers -->
     <script src="scripts/controllers/partials/map.js"></script>
     <script src="scripts/controllers/partials/events-list.js"></script>
     <script src="scripts/controllers/partials/times.js"></script>
+    <script src="scripts/controllers/partials/navigation.js"></script>
 
     <!-- endbuild -->
     

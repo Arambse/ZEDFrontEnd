@@ -10,7 +10,7 @@ html, body {
 
 .navigation-wrapper {
 	height: $navigation-wrapper-height;
-	@include add-pattern();
+	// @include add-pattern();
 }
 
 .main-wrapper {

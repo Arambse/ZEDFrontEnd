@@ -1,12 +1,19 @@
 angular.module('ZedApp')
-  .controller('NavCtrl', ['$scope', '$rootScope', 'Events', 'User', 'Shifts', 'DATE_FILTER_CHANGED', 'TIME_FILTER_CHANGED', 'SHIFT_FILTER_CHANGED',
-    function ($scope, $rootScope, Events, User, Shifts, DATE_FILTER_CHANGED, TIME_FILTER_CHANGED, SHIFT_FILTER_CHANGED) {
+  .controller('NavCtrl', ['$scope', '$rootScope', 'Shifts', 'DATE_FILTER_CHANGED', 'TIME_FILTER_CHANGED', 'SHIFT_FILTER_CHANGED',
+    function ($scope, $rootScope, Shifts, DATE_FILTER_CHANGED, TIME_FILTER_CHANGED, SHIFT_FILTER_CHANGED) {
 
+    $scope.shifts = Shifts.shifts();
+    $scope.shiftsMinutes = Shifts.shiftsMinutes();
+
+    //Starting Values for html - Should stay here or move to html ng-init ASK
     $scope.currentDate = moment().format('DD/MM/YYYY');
-    $scope.shifts = Shifts;
-    $scope.currentShift = Shifts['Evening'];
-    $scope.currentTime = null;
+    $scope.currentShift = $scope.shifts['Evening'];
+    $scope.currntHour = $scope.currentShift.times[0];
+    $scope.currentMinutes = $scope.shiftsMinutes[0];
 
+    $scope.currentTime = $scope.currentHour + ':' + $scope.currentMinute;
+    //End of starting value;
+    
     $('#date-picker').datepicker()
       .on('changeDate', function(ev) {
         var newDate = new Date(ev.date)
@@ -18,7 +25,6 @@ angular.module('ZedApp')
       console.log('currentDate changed to ' + newValue + ', Broadcasting');
       $rootScope.$broadcast(DATE_FILTER_CHANGED, newValue);
     });
-
       //Broadcasting for filtering reasons
     $scope.$watch('currentTime', function(newValue, oldValue) {
       // if(newValue === oldValue) { return; };

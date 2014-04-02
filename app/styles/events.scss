@@ -21,7 +21,7 @@ $navigation-container-height: 20%;
 	.times-container {
 		width: 100%;
 		height: $times-container-height;
-		position: relative;
+		float: top;
 		border: 2px;
 	}
 

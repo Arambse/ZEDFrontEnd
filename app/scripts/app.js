@@ -51,17 +51,17 @@ var myApp = angular.module('ZedApp', [
       .state('user.events.main', {
         url: '/events',
         views: {
+          'navigation' : {
+            templateUrl: 'views/partials/navigation.html',
+            controller: 'NavCtrl'
+          },
           'map': {
             templateUrl: 'views/partials/map.html',
             controller: 'MapCtrl'
           },
-          'events_list': {
+          'events-list': {
             templateUrl: 'views/partials/events-list.html',
             controller: 'EventsListCtrl'
-          },
-          'times' : {
-            templateUrl: 'views/partials/times.html',
-            controller: 'TimesCtrl'
           }
         }
       });

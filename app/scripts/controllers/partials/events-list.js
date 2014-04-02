@@ -1,7 +1,18 @@
 angular.module('ZedApp')
   .controller('EventsListCtrl', ['$scope', '$state', '$location', 'Events', 'User', 'Shifts', 'DATE_FILTER_CHANGED', 'TIME_FILTER_CHANGED', 'SHIFT_FILTER_CHANGED',
    function ($scope, $state, $location, Events, User, Shifts, DATE_FILTER_CHANGED, TIME_FILTER_CHANGED, SHIFT_FILTER_CHANGED) {
- 
+	
+	 $("#pick-a-color").pickAColor({
+	  showSpectrum            : false,
+	  showAdvanced            : false,
+	  showSavedColors         : false,
+	  saveColorsPerElement    : false,
+	  fadeMenuToggle          : true,
+	  showHexInput            : false,
+	  showBasicColors         : true,
+	  allowBlank              : false
+	});
+	 
     $scope.statusFilter = $state.current.data.statusFilter;
 
 	//Methods

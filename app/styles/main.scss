@@ -1,4 +1,7 @@
+@import 'app-wide';
+
 $navigation-wrapper-height: 20%; 
+$app-color: red;
 
 html, body {
     width: 100%;
@@ -7,10 +10,11 @@ html, body {
 
 .navigation-wrapper {
 	height: $navigation-wrapper-height;
-	background: green;
+	@include add-pattern();
 }
 
 .main-wrapper {
     height: 100% - $navigation-wrapper-height;
     margin: 0px;
+	@include add-pattern();
 }

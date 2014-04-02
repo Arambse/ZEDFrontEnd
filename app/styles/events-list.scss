@@ -1,4 +1,5 @@
 @import 'transitions';
+@import 'app-wide';
 
 $search-bar-height: 15%;
 $events-filter-tabs-container-height: 10%;
@@ -12,17 +13,14 @@ $events-filter-tabs-container-height: 10%;
 /* Upper Elements */
 .search-bar {
 	height: $search-bar-height;
-	background: green;
 }
 
 .events-filter-tabs-container {
 	height: $events-filter-tabs-container-height;
-	background: white;
 }
 
 .events-table-container {
 	height: 100% - $search-bar-height - $events-filter-tabs-container-height;
-	background: white;
 	overflow: auto;
 }
 

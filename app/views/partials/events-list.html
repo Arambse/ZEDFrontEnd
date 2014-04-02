@@ -50,15 +50,8 @@
     </tr>
     <tr class="animated-event-row" ng-if="event.expanded" ng-repeat-end="">
       <td colspan="5">
-        <div>
-        	<div>
-				adsadsad
-				<p>sdfsdfdsf</p>
-				<h3>asdFASDFS</h3>
-        	</div>
-			<!-- insert expanded html here -->
-			asdasdasdasds
-		</div>
+        <div ng-include src="'views/partials/events-list-expanded-item.html'">
+        </div>
       </td>
     </tr>
   </tbody>

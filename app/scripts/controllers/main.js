@@ -3,9 +3,8 @@ angular.module('ZedApp')
    function ($scope, $state, User, Authentication) {
 	  
 	  // User.sessionID = Authentication.retrieveAuthToken();
-
 	  if (User.sessionID) {
-	  	  $state.go('user.events.main');
+	  	  $state.go('user.events.main.all');
 	  } else {
 		  $state.go('anonymous.login'); 
 	  }

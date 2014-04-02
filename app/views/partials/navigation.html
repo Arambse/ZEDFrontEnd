@@ -1,14 +1,22 @@
-<div>
-  <input ng-model="currentDate" id="date-picker" data-date-format="dd/mm/yyyy">
-</div>
-<div class="row">
-  <div class="col-md-4">
-  	<select ng-model="currentShift" ng-options="v as k for (k,v) in shifts">
-  	</select>
-  </div>
-   <div class="col-md-4">
-  	<select ng-model="currentTime" ng-options="time for time in currentShift.times">
-	  <option value="">Entire Shift</option>
-  	</select>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 current-date-container">
+      <input ng-model="currentDate" id="date-picker" data-date-format="dd/mm/yyyy">
+    </div>
+    <div class="col-md-3 row current-times-container">
+      <div class="col-md-4">
+      	<select ng-model="currentShift" ng-options="v as k for (k,v) in shifts">
+      	</select>
+      </div>
+    </div>
+      <div class="col-md-3">
+      	<select ng-model="currentHour" ng-options="time for time in currentShift.times">
+      	  <option value="">Entire Shift</option>
+      	</select>
+        <select ng-model="currentMinutes" ng-options="time for time in currentShift.times">
+          <option value="">Entire Shift</option>
+        </select>
+      </div>
+      <div class="col-md-3 nav-imgs-container">Hello i am div 4</div>
   </div>
 </div>

@@ -1,10 +1,10 @@
 angular.module('ZedApp')
-  .controller('NavCtrl', ['$scope', '$rootScope', '$state', '$q', '$http', 'Events', 'User', 'Shifts', 'DATE_FILTER_CHANGED', 'TIME_FILTER_CHANGED', 'SHIFT_FILTER_CHANGED',
-    function ($scope, $rootScope, $state, $q, $http, Events, User, Shifts, DATE_FILTER_CHANGED, TIME_FILTER_CHANGED, SHIFT_FILTER_CHANGED) {
+  .controller('NavCtrl', ['$scope', '$rootScope', 'Events', 'User', 'Shifts', 'DATE_FILTER_CHANGED', 'TIME_FILTER_CHANGED', 'SHIFT_FILTER_CHANGED',
+    function ($scope, $rootScope, Events, User, Shifts, DATE_FILTER_CHANGED, TIME_FILTER_CHANGED, SHIFT_FILTER_CHANGED) {
 
     $scope.currentDate = moment().format('DD/MM/YYYY');
     $scope.shifts = Shifts;
-    $scope.currentShift = Shifts['Morning'];
+    $scope.currentShift = Shifts['Evening'];
     $scope.currentTime = null;
 
     $('#date-picker').datepicker()

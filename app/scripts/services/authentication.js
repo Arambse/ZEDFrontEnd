@@ -39,5 +39,5 @@ angular.module('ZedApp').service('Authentication',
       };
 
       User.registerObserverCallback(updateAuthHeader);
-
+      
     }]);

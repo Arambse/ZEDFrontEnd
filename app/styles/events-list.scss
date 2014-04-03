@@ -2,18 +2,19 @@
 @import 'app-wide';
 
 /* Upper Elements */
-.search-bar {
-}
-
-.events-filter-tabs-container {
-}
-
 .events-table-container {
+	max-height: 400px;
 	overflow: auto;
 }
 
 tr {
 	cursor: pointer;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
 
 .animated-event-row.ng-enter, 

@@ -1,24 +1,26 @@
 <div class="container-full">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 bar-name-container">
-      i am bar name
+  <div class="row row-flex row-flex-wrap">
+    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 bar-name-container text-center">
+      <h2>Bar</h2>
+      <p>me is image</p>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 current-date-container">
-      <input ng-model="currentDate" id="date-picker" data-date-format="dd/mm/yyyy">
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 current-date-container text-center">
+      <input ng-model="currentDate" id="date-picker" data-date-format="dd/mm/yyyy" class="center-block">
+      <p>{{nowTimeDataFormated()}}</p>
+      <p>{{nowDateDataFormated()}}</p>
     </div>
-
       <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 row current-times-container">
-        <select ng-model="currentShift" ng-options="v as k for (k,v) in shifts">
+        <select ng-model="currentShift" ng-options="v as k for (k,v) in shifts" class="center-block">
         </select>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <select ng-model="currentHour" ng-options="time for time in currentShift.times" ng-change="timeChanged()">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 center-block">
+          <select ng-model="currentHour" ng-options="time for time in currentShift.times" ng-change="timeChanged()" class="center-block">
             <option value="">Entire Shift</option>
           </select>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <select ng-disabled="currentHour === null" ng-model="currentMinutes" ng-options="time for time in shiftsMinutes" ng-change="timeChanged()">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 center-block" >
+          <select ng-disabled="currentHour === null" ng-model="currentMinutes" ng-options="time for time in shiftsMinutes" ng-change="timeChanged()" class="center-block">
           </select>
         </div>
       </div>

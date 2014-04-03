@@ -50,18 +50,11 @@ angular.module('ZedApp')
         console.log($scope.currentTime);
       };
 
-      $scope.clicked = function() {
-        console.log('sdf');
-        var date = $scope.currentDate;
-        var singleDayPromise = Shifts.getDay(date);
-
-        singleDayPromise.then(function (data, status, headers) {
-            console.log('Successfully Fetched single Day Data');
-            $scope.isLoading = false;
-          }, function (error) {
-            console.log('Error in fetching Single Day Data');
-            $scope.isLoading = false;
-        });
-      };
+      $scope.nowDateDataFormated = function() {
+        return moment().format('MMMM Do');
+      }
+      $scope.nowTimeDataFormated = function() {
+        return moment().format('HH:mm');
+      }
 
 }]);

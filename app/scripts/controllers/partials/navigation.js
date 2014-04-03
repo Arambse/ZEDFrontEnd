@@ -20,6 +20,24 @@ angular.module('ZedApp')
         console.log('new date :' + currentDate);
       });
 
+    //Broadcasting for filtering reasons
+    $scope.$watch('currentDate', function(newValue, oldValue) {
+      console.log('currentDate changed to ' + newValue + ', Broadcasting');
+      $rootScope.$broadcast(DATE_FILTER_CHANGED, newValue);
+    });
+
+    $scope.$watch('currentTime', function(newValue, oldValue) {
+      // if(newValue === oldValue) { return; };
+      console.log('currentTime changed to ' + newValue + ', Broadcasting');
+      $rootScope.$broadcast(TIME_FILTER_CHANGED, newValue);
+    });
+
+    $scope.$watch('currentShift', function(newValue, oldValue) {   
+      // if(newValue === oldValue) { return; };
+      console.log('currentShift changed to ' + newValue.englishName + ', Broadcasting');
+      $rootScope.$broadcast(SHIFT_FILTER_CHANGED, newValue);
+    });
+
     //In order to not watch more variables
     $scope.timeChanged = function() {
       //Entire shift
@@ -32,20 +50,18 @@ angular.module('ZedApp')
       console.log($scope.currentTime);
     };
 
-    $scope.$watch('currentDate', function(newValue, oldValue) {
-      console.log('currentDate changed to ' + newValue + ', Broadcasting');
-      $rootScope.$broadcast(DATE_FILTER_CHANGED, newValue);
-    });
-      //Broadcasting for filtering reasons
-    $scope.$watch('currentTime', function(newValue, oldValue) {
-      // if(newValue === oldValue) { return; };
-      console.log('currentTime changed to ' + newValue + ', Broadcasting');
-      $rootScope.$broadcast(TIME_FILTER_CHANGED, newValue);
-    });
+    $scope.clicked = function() {
+      console.log('sdf');
+      var date = $scope.currentDate;
+      var singleDayPromise = Shifts.getDay(date);
 
-    $scope.$watch('currentShift', function(newValue, oldValue) {   
-      // if(newValue === oldValue) { return; };
-      console.log('currentShift changed to ' + newValue.englishName + ', Broadcasting');
-      $rootScope.$broadcast(SHIFT_FILTER_CHANGED, newValue);
-    });
+      singleDayPromise.then(function (data, status, headers) {
+          console.log('Successfully Fetched single Day Data');
+          $scope.isLoading = false;
+        }, function (error) {
+          console.log('Error in fetching Single Day Data');
+          $scope.isLoading = false;
+      });
+    };
+
 }]);

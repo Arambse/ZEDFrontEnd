@@ -6,10 +6,12 @@ $navigation-container-height: 20%;
 
 #events-container {
 	height: 100%;
+	color: white;
 }
 
 #navigation-container {
 	height: $navigation-container-height;
+	@include add-nav-pattern();
 }
 
 #events-list-container {

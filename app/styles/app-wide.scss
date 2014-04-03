@@ -1,4 +1,8 @@
 @mixin add-pattern() {
-	background-image: url(../images/wild_flowers.png);
+	background-image: url(../images/bg-navigation.png);
+	background-repeat: repeat;
+}
+@mixin add-nav-pattern() {
+	background-image: url(../images/bg-header.png);
 	background-repeat: repeat;
 }

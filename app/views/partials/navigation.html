@@ -1,21 +1,26 @@
-<div class="container">
+<div class="container-full">
   <div class="row">
+    <div class="col-md-1 bar-name-container">
+      i am bar name
+    </div>
     <div class="col-md-3 current-date-container">
       <input ng-model="currentDate" id="date-picker" data-date-format="dd/mm/yyyy">
     </div>
-    <div class="col-md-3 row current-times-container">
-      <div class="col-md-4">
-      	<select ng-model="currentShift" ng-options="v as k for (k,v) in shifts">
-      	</select>
-      </div>
-    </div>
       <div class="col-md-3">
+        <div class="col-md-2 row current-times-container">
+            <div class="col-md-4">
+            <select ng-model="currentShift" ng-options="v as k for (k,v) in shifts">
+            </select>
+          </div>
+        </div>
       	<select ng-model="currentHour" ng-options="time for time in currentShift.times" ng-change="timeChanged()">
       	  <option value="">Entire Shift</option>
       	</select>
         <select ng-disabled="currentHour === null" ng-model="currentMinutes" ng-options="time for time in shiftsMinutes" ng-change="timeChanged()">
         </select>
       </div>
-      <div class="col-md-3 nav-imgs-container">Hello i am div 4</div>
+      <div class="col-md-4 nav-imgs-container">Hello i am div 4</div>
+      <div class="col-md-1 settings-buttons">settings</div>
+      <!-- <button ng-click="clicked()"></button> -->
   </div>
 </div>

@@ -1,0 +1,17 @@
+.nav-tabs > li > a, .nav-tabs>li.active>a {
+    background-color: #999999;
+    margin-right: 2px;
+    margin-bottom: 5px;
+    color: #ffffff;
+    border-radius: 5px;
+    -webkit-transition: all ease-in-out .3s;
+    -moz-transition: all ease-in-out .3s;
+    -ms-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
+}
+
+.nav-tabs > li > a:hover, .nav-tabs>li.active>a:hover {
+    background-color: #993333;
+    color: #fff;
+}

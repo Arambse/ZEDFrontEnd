@@ -1,5 +1,6 @@
 @import 'transitions';
 @import 'app-wide';
+@import 'navigation-tabs';
 
 /* Upper Elements */
 .events-table-container {
@@ -7,16 +8,14 @@
 	overflow: auto;
 }
 
+
 tr {
 	cursor: pointer;
 }
 
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-}
 
+
+//Animations
 .animated-event-row.ng-enter, 
 .animated-event-row.ng-leave
 { 

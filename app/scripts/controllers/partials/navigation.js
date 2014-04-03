@@ -51,7 +51,7 @@ angular.module('ZedApp')
       };
 
       $scope.nowDateDataFormated = function() {
-        return moment().format('MMMM Do');
+        return moment($scope.currentDate, 'DD/MM/YYYY').format('MMMM Do');
       }
       $scope.nowTimeDataFormated = function() {
         return moment().format('HH:mm');

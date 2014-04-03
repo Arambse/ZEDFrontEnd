@@ -2,9 +2,9 @@ angular.module('ZedApp.Services', [])
   .service('Shifts', ['ShiftsTimes', function(ShiftsTimes) {
 
 	this.shiftsMinutes = function() {
-		return ['0', '15', '30', '45'];
+		return ['00', '15', '30', '45'];
 	}
-	
+
   	this.shifts = function() {
 	  return shiftsEnum = {
 	    Morning: { identifierCode: '1', times: ShiftsTimes.morningTimes() , englishName: 'Morning', hebrewName: 'בוקר'},

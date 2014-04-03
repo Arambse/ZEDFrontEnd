@@ -38,7 +38,9 @@ angular.module('ZedApp.Services')
 
     for (var i = 0; i < numberOfMoments + 1; i++) {
       var newMoment = moment(startTimeMoment).add('m', i * interval);
-      timesArray.push(newMoment.format(timeFormat));
+      var momentString = newMoment.format(timeFormat);
+      momentString = momentString.substring(0,momentString.indexOf(':'));
+      timesArray.push(momentString);
     }
 
     return timesArray;

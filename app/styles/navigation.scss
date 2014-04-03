@@ -1,3 +1,7 @@
+@mixin circle() {
+
+}
+
 .container-full {
 	margin: 0 auto;
   width: 100%;
@@ -11,4 +15,26 @@
 }
 .nav-imgs-container {
 
+}
+.placeholder img {
+	border-radius: 50%;
+}
+
+.circle {
+	@include circle();
+}
+
+.circle-red {
+	@extend .circle;
+	color: red;
+}
+
+.circle-green {
+	@extend .circle;
+	color: green;
+}
+
+.circle-blue {
+	@extend .circle;
+	color: blue;
 }

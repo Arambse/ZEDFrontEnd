@@ -8,6 +8,7 @@ angular.module('ZedApp')
     //Starting Values for html - Should stay here or move to html ng-init ASK
     $scope.currentDate = moment().format('DD/MM/YYYY');
     $scope.currentShift = $scope.shifts['Evening'];
+    $scope.currentTime = null;
     $scope.currentMinutes = $scope.shiftsMinutes[0];
     $scope.currentHour = null;
     //End of starting value;
@@ -21,11 +22,9 @@ angular.module('ZedApp')
 
     //In order to not watch more variables
     $scope.timeChanged = function() {
-      console.log($scope.currentHour);
-      console.log($scope.currentMinutes);
       //Entire shift
       if ($scope.currentHour === null) {
-        $scope.currentTime === null;
+        $scope.currentTime = null;
       }
       else {
         $scope.currentTime = $scope.currentHour + ':' + $scope.currentMinutes;

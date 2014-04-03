@@ -2,6 +2,8 @@ angular.module('ZedApp.Filters')
   .filter('time', [function () {
   return function (input, filterTime, currentShift) {
 
+    console.log(filterTime + ' ' + currentShift);
+
     if (typeof input === 'undefined' || input === null) {
       return input;
     }
@@ -18,9 +20,9 @@ angular.module('ZedApp.Filters')
       for (i = 0; i < input.length; i++) {
         var eventTime = input[i].start_time.toString();
         var eventTimeAsArray = eventTime.split(':');
-        eventTime = eventTimeAsArray[0] + ':' + eventTimeAsArray[1];
+        var eventTimeHour = eventTimeAsArray[0];
         //If Event time is in the shift array of times
-        if (currentShift.times.indexOf(eventTime) != -1) {
+        if (currentShift.times.indexOf(eventTimeHour) != -1) {
           filteredArray.push(input[i]);
         }
       }

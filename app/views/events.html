@@ -1,7 +1,11 @@
-<div id="events-container">
-  <div id="navigation-container" ui-view="navigation"></div>
-  <div id="map-container" ui-view="map"></div>
-  <div id="events-list-container" ui-view="events-list"></div>
+<div class="container-fluid" id="events-container">
+	<div class="row">
+	  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="navigation-container" ui-view="navigation"></div>
+	</div>
+	<div class="row">
+	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="events-list-container" ui-view="events-list"></div>
+	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="map-container" ui-view="map"></div>
+	</div>
 </div>
 
 

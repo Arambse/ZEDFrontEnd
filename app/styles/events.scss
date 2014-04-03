@@ -10,32 +10,14 @@ $navigation-container-height: 20%;
 }
 
 #navigation-container {
-	height: $navigation-container-height;
 	@include add-nav-pattern();
 }
 
 #events-list-container {
-	width: $events-list-container-width;
-	height: 80%;
-	float: left;
 	@include add-pattern();
-
-	.times-container {
-		width: 100%;
-		height: $times-container-height;
-		float: top;
-		border: 2px;
-	}
-
-	.events-list-container {
-		width: 100%;
-		height: 100 - $times-container-height;
-	}
 }
 
 #map-container {
-	width: 100 - $events-list-container-width;
-	height: 80%;
-	float: right;
 	background: blue; 
+	height: 100%;
 }

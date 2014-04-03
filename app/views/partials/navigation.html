@@ -1,38 +1,30 @@
 <div class="container-full">
   <div class="row">
-    <div class="col-md-1 bar-name-container">
+    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 bar-name-container">
       i am bar name
     </div>
-    <div class="col-md-3 current-date-container">
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 current-date-container">
       <input ng-model="currentDate" id="date-picker" data-date-format="dd/mm/yyyy">
     </div>
-      <div class="col-md-3">
-        <div class="col-md-2 row current-times-container">
-            <div class="col-md-4">
-            <select ng-model="currentShift" ng-options="v as k for (k,v) in shifts">
-            </select>
-          </div>
-        </div>
-      	<select ng-model="currentHour" ng-options="time for time in currentShift.times" ng-change="timeChanged()">
-      	  <option value="">Entire Shift</option>
-      	</select>
-        <select ng-disabled="currentHour === null" ng-model="currentMinutes" ng-options="time for time in shiftsMinutes" ng-change="timeChanged()">
+
+      <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 row current-times-container">
+        <select ng-model="currentShift" ng-options="v as k for (k,v) in shifts">
         </select>
       </div>
-      <div class="col-md-4 nav-imgs-container">
-        <div class="row placeholders">
-          <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzBEOEZEQiI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEwMCIgeT0iMTAwIiBzdHlsZT0iZmlsbDojZmZmO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEzcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjAweDIwMDwvdGV4dD48L3N2Zz4=">
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzBEOEZEQiI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEwMCIgeT0iMTAwIiBzdHlsZT0iZmlsbDojZmZmO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEzcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjAweDIwMDwvdGV4dD48L3N2Zz4=">
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzBEOEZEQiI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEwMCIgeT0iMTAwIiBzdHlsZT0iZmlsbDojZmZmO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEzcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjAweDIwMDwvdGV4dD48L3N2Zz4=">
-            </div>
+      <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <select ng-model="currentHour" ng-options="time for time in currentShift.times" ng-change="timeChanged()">
+            <option value="">Entire Shift</option>
+          </select>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <select ng-disabled="currentHour === null" ng-model="currentMinutes" ng-options="time for time in shiftsMinutes" ng-change="timeChanged()">
+          </select>
         </div>
       </div>
-      <div class="col-md-1 settings-buttons">settings</div>
+      <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4 row nav-imgs-container">
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1">settings</div>
       <!-- <button ng-click="clicked()"></button> -->
   </div>
 </div>

@@ -38,4 +38,8 @@ angular.module('ZedApp').service('Events',
         return deferred.promise;
       };
 
+    this.getEventsInfo = function(shift) {
+      
+    }
+
 }]);

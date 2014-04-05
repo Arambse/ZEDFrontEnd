@@ -1,5 +1,5 @@
 angular.module('ZedApp')
-.constant('SERVER_URL', 'http://10.0.0.3:54042/')
+.constant('SERVER_URL', 'http://zed.streetwise.co.il:8085/')
 .constant('SESSION_TOKEN_KEY', 'sessionID')
 .constant('USER_COOKIE_NAME','zUserInfo')
 
